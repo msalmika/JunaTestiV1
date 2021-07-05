@@ -14,35 +14,33 @@ namespace DigiTrafficTester
             if (args.Length == 0)
             {
                 Console.WriteLine("-a kaikki asemat, -j junat [lähtöasema] [määränpää]");
-
+                args = Console.ReadLine().Split(" ");
                 //PrintUsage();
                 //return;
             }
-            else
+
+            if (args[0].ToLower().StartsWith("-a"))
             {
-                if (args[0].ToLower().StartsWith("-a"))
+                string asema = "";
+                if (args.Length > 1)
                 {
-                    string asema = "";
-                    if (args.Length > 1)
-                    {
-                        asema = args[1];
-                    }
-                    TulostaAsemat(asema);
+                    asema = args[1];
+                }
+                TulostaAsemat(asema);
+                return;
+            }
+            if (args[0].ToLower().StartsWith("-j"))
+            {
+                string lähtöasema;
+                string kohdeasema;
+                if (args.Length < 3)
+                {
+                    PrintUsage();
                     return;
                 }
-                if (args[0].ToLower().StartsWith("-j"))
-                {
-                    string lähtöasema;
-                    string kohdeasema;
-                    if (args.Length < 3)
-                    {
-                        PrintUsage();
-                        return;
-                    }
-                    lähtöasema = args[1];
-                    kohdeasema = args[2];
-                    TulostaJunatVälillä(lähtöasema, kohdeasema);
-                }
+                lähtöasema = args[1];
+                kohdeasema = args[2];
+                TulostaJunatVälillä(lähtöasema, kohdeasema);
             }
         }
 
