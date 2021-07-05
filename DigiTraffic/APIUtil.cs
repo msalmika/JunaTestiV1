@@ -58,6 +58,7 @@ namespace RataDigiTraffic
             //    var responseString = response.Content.ReadAsStringAsync().Result;
             //    json = responseString;
             //}
+
             List<Kulkutietoviesti> res = JsonConvert.DeserializeObject<List<Kulkutietoviesti>>(json);
             return res;
         }
