@@ -17,6 +17,7 @@ namespace DigiTrafficTester
 
                 //PrintUsage();
                 //return;
+
             }
             else
             {
